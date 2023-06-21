@@ -1,7 +1,7 @@
 #include "main.h"
 /**
-* main - check the code
-*
+* print_to_98 - check the code
+* @n : natural numbers
 * Return: Always 0.
 */
 void print_to_98(int n)
