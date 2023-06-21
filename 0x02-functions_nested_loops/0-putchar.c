@@ -1,9 +1,9 @@
-#include <main.h>
+#include "main.h"
 /**
-* main - Point of Entry of the program
-* description: 'to print _putchar to stdout'
-* Return: Return value is 0.
-**/
+* main - Entry point of the program
+*description: 'prints _putchar to stdout'
+* Return: 0 (Successful Execution)
+*/
 int main(void)
 {
 	_putchar('_');
