@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
 	result = multiply(num1, num2);
 
-	printf("The multiplication of %d and %d is: %d\n", num1, num2, result);
+	printf("%d\n", result);
 
 	return (0);
 
