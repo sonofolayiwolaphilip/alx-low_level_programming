@@ -32,12 +32,12 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	num1 = _atoi(argv[1]);
-	num2 = _atoi(argv[2]);
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
 
 	result = multiply(num1, num2);
 
-	_putchar("The multiplication of %d and %d is: %d\n", num1, num2, result);
+	printf("The multiplication of %d and %d is: %d\n", num1, num2, result);
 
 	return (0);
 
