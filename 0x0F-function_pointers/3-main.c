@@ -3,11 +3,11 @@
 #include "3-calc.h"
 
 /**
- * main - Entry point of the calculator program
- * @argc: The number of command-line arguments
- * @argv: An arrayy of pointers to the command-line arguments
+ * main - Entry point of the calculator program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of pointers to the command-line arguments.
  *
- * Return: 0 on succes, non-zero values on error.
+ * Return: 0 on success, non-zero value on error.
  */
 int main(int argc, char *argv[])
 {
@@ -27,14 +27,19 @@ int main(int argc, char *argv[])
 
 	op_func = get_op_func(operator);
 
-	if (op_func == NULL)
+	if (!op_func)
 	{
 		printf("Error\n");
 		return (99);
 	}
 
+	if ((*operator == '/' || *operator == '%') && num2 == 0)
+	{
+		printf("Error\n");
+		return (100);
+	}
+
 	result = op_func(num1, num2);
 	printf("%d\n", result);
-
 	return (0);
 }
