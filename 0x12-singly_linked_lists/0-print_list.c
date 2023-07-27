@@ -1,26 +1,29 @@
+#include <stddef.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "list.h"
+#include "lists.h"
 
 /**
- * print_list - print list
- * @h: the arguement container declared as aconst list_t
+ * print_list - Function to print all the elements of the linked list
+ * @h: The head of the linked list
  *
- * Return: return count
+ * Return: The number of nodes in the linked list
  */
 
 size_t print_list(const list_t *h)
 {
-	const list_t *current = h;
 	size_t count = 0;
 
-	while (current != NULL)
+	if (h == NULL)
 	{
-		printf("[%lu] %s\n", current->len, current->str);
-		count++;
-		current = current->next;
+		printf("[0] (nil)\n");
+		return (count);
 	}
-
+	while (h != NULL)
+	{
+		printf("%s ", h->str);
+		h = h->next;
+		count++;
+	}
+	printf("\n");
 	return (count);
 }

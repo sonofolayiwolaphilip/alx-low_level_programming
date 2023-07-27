@@ -1,12 +1,13 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include <stddef.h>
+#include <stddef.h> 
 
-typedef struct list_t {
+typedef struct list_node
+{
 	char *str;
-	size_t int len;
-	struct list_t *next;
+	size_t len;
+	struct list_node *next;
 } list_t;
 
 size_t print_list(const list_t *h);
