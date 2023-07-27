@@ -3,6 +3,8 @@
 
 #include <stddef.h> 
 
+int _putchar(char c);
+
 typedef struct list_node
 {
 	char *str;
