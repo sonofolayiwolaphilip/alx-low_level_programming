@@ -24,7 +24,7 @@ int main(void)
 	}
 	new->str = strdup("Hello");
 	new->len = 5;
-	ew->next = head;
+	new->next = head;
 	head = new;
 	n = list_len(head);
 	printf("-> %lu elements\n", n);
