@@ -10,7 +10,7 @@
  *
  * Return: returns NULL on failure.
  */
-list_t *add_node_end(list_t **head, 
+list_t *add_node_end(list_t **head,
 		const char *str)
 {
 	list_t *my_new_node;
