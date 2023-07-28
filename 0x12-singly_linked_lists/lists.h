@@ -5,6 +5,8 @@
 
 int _putchar(char c);
 
+void my_message(void);
+
 /**
  * struct list_node - singly linked list
  * @str: string - (malloc'ed string)
