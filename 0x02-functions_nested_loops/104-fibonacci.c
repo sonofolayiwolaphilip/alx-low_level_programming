@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
  * main - Print the first 98 fibanocci numbers, starting with
  * 1 and 2, seperated by a comma followed by a space.
@@ -15,7 +16,7 @@ int main(void)
 	{
 	sum = fib1 + fib2;
 	printf("%lu, ", sum);
-        fib1 = fib2;
+	fib1 = fib2;
 	fib2 = sum;
 	}
 	fib1_half1 = fib1 / 10000000000;
@@ -40,5 +41,5 @@ int main(void)
 	fib2_half2 = half2;
 	}
 	printf("\n");
-        return (0);
+	return (0);
 }
