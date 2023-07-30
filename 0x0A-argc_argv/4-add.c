@@ -1,63 +1,57 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include "main.h"
 
 /**
- * adds_positive - function to add positive numbers
- * @argc: counter of the number
- * @argv: array containing the numbers
- *
- * return: sum of positive numbers 
+ * number_check - to check for digit
+ * @str: array of string
+ * Return: return 0 on success
  */
-int adds_positive(int argc, char *argv[])
+int number_check(char *str)
 {
-	int sum=0;
+	unsigned int counter = 0;
 
-	for (int i =1; 1<argc; i++)
+	while (counter < strlen(str))
 	{
-		if (!isdigit(*argv[i]))
+		if (!isdigit(str[counter]))
 		{
-
-			printf("Error\n");
-			return (1);
+			return (0);
 		}
-
-		int num = atoi(argv[i]);
-		
-		if (num > 0)
-		{
-			sum +=num;
-		}
-	
+		counter++;
 	}
-
-	return (sum);
+	return (1);
 }
 
 /**
- * main - Entery into he function
- * @argc: counter 
- * @argv: Array
- *
- * return: 0 on success
+ * main - entering point
+ * @argc: counter
+ * @argv: The Argument to be received
+ * Return: 0 on success
  */
-
 int main(int argc, char *argv[])
 {
-	if(argc < 2)
-	{
-		printf("0\n")
-	}
-	else if (!isdigit(argv[]))
-	{
-		printf("Error\n")
-	}
-	else
-	{
-		int result = adds_positive(argc, argv);
-		printf("%d\n", result);
-	}
+	int counter;
+	int convertedstring;
+	int total = 0;
 
+	counter = 1;
+
+	while (counter < argc)
+	{
+		if (number_check(argv[counter]))
+		{
+			convertedstring = atoi(argv[counter]);
+			total += convertedstring;
+		}
+		else
+		{
+			printf("error\n");
+			return (1);
+		}
+		counter++;
+	}
+	printf("%d\n", total);
 	return (0);
-
 }
