@@ -17,7 +17,7 @@ char *argstostr(int ac, char **av)
 
 	char *result;
 
-	total_length = 0; 
+	total_length = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
