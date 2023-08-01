@@ -18,6 +18,10 @@ char *argstostr(int ac, char **av);
 
 char **strtow(char *str);
 
+int count_words(const char *str);
+
+void copy_word(char **dest, const char *src);
+
 int _putchar(char c);
 
 #endif
