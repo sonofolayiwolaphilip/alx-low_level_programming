@@ -1,90 +1,77 @@
 #include <stdlib.h>
-#include <string.h>
 #include "main.h"
-int count_words(const char *str)
-{
-        int count = 0;
 
-        char *ptr = (char *)str;
-
-        while (*ptr != '\0')
-        {
-                while (*ptr == ' ')
-                        ptr++;
-                if (*ptr != '\0')
-                {
-                        count++;
-                        while (*ptr != ' ' && *ptr != '\0')
-                                ptr++;
-                }
-        }
-        return (count);
-}
 /**
- * copy_word- helping function to copy word
- * @dest: the destination
- * @src: the source of the file
+ * count_word - helper function to count the number of words in a string
+ * @s: string to evaluate
+ *
+ * Return: number of words
  */
-void copy_word(char **dest, const char *src)
+int count_word(char *s)
 {
-	int Lengthofword;
-        char *wordBegin = (char *)src;
+	int flag, c, w;
 
-        while (*src != ' ' && *src != '\0')
-                src++;
+	flag = 0;
+	w = 0;
 
-        Lengthofword = src - wordBegin;
-
-        *dest = (char *)malloc((Lengthofword + 1) * sizeof(char));
-        if (*dest == NULL)
-        {
-                printf("Memory allocation failed\n");
-                exit(EXIT_FAILURE);
-        }
-        strncpy(*dest, wordBegin, Lengthofword);
-        (*dest)[Lengthofword] = '\0';
-}
-/**
- * strtow - function to split
- * @str: expected string
- * Return: return phrase on success
- */
-
-char **strtow(char *str)
-{
-	int wordcount, index;
-	char **phrase;
-	char *ptr;
-
-	if (str == NULL || *str == '\0')
-		return (NULL);
-
-	wordcount = count_words(str);
-
-	if (wordcount == 0)
-		return (NULL);
-
-	phrase = (char **)malloc((wordcount + 1) * sizeof(char *));
-
-	if (phrase == NULL)
+	for (c = 0; s[c] != '\0'; c++)
 	{
-		printf("Memory allocation failed \n");
-		return (NULL);
-	}
-	ptr = str;
-
-	index = 0;
-
-	while (*ptr != '\0')
-	{
-		while (*ptr == ' ')
-			ptr++;
-		if (*ptr != '\0')
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
 		{
-		copy_word(&phrase[index], ptr);
-		index++;
+			flag = 1;
+			w++;
 		}
 	}
-	return (phrase);
-}
 
+	return (w);
+}
+/**
+ * **strtow - splits a string into words
+ * @str: string to split
+ *
+ * Return: pointer to an array of strings (Success)
+ * or NULL (Error)
+ */
+char **strtow(char *str)
+{
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
+
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
+		return (NULL);
+
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
+		return (NULL);
+
+	for (i = 0; i <= len; i++)
+	{
+		if (str[i] == ' ' || str[i] == '\0')
+		{
+			if (c)
+			{
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
+			}
+		}
+		else if (c++ == 0)
+			start = i;
+	}
+
+	matrix[k] = NULL;
+
+	return (matrix);
+}
