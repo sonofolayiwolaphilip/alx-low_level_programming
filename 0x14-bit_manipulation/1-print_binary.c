@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include "main.h"
 #include <string.h>
 /**
@@ -13,8 +14,8 @@ void print_binary(unsigned long int n)
 
 	if (n == 0)
 	{
-		printf("0");
-		return ;
+		_putchar('0');
+		return;
 	}
 
 	position_of_bit = sizeof(n) * 8 - 1;
@@ -26,11 +27,11 @@ void print_binary(unsigned long int n)
 	if (n & copy)
 	{
 		leading_0s = 0;
-		printf("1");
+		_putchar('1');
 	}
 	else if (!leading_0s)
 	{
-		printf("0");
+		_putchar('0');
 	}
 	position_of_bit--;
 	}
