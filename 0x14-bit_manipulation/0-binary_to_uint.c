@@ -1,7 +1,11 @@
 #include "main.h"
 #include <stddef.h>
 #include <string.h>
-
+/**
+ * binary_to_uint - binary to integer function
+ * @b: the agument
+ * Return: return appropriate responses
+ */
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int output;
