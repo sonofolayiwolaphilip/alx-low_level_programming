@@ -1,18 +1,22 @@
 #include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
 /**
- * alloc_grid - grid
- * @width: parameter
+ * free_grid - to free grid
  * @height: parameter
- * Return: NULL on failure
+ * Return: checks if the grid is freed
  */
 void free_grid(int **grid, int height)
 {
-	if (width <= 0 || height <= 0)
-	{
-		return (NULL);
-	}
-	int **grid = (int **)malloc(height * sizeof(int *));
+	int i;
+
 	if (grid == NULL)
 	{
+		return;
+	}
+	for (i = 0; i < height; i++)
+	{
+		free(grid[i]);
+	}
+	free(grid);	
 }

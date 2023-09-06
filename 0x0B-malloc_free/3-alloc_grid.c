@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -25,15 +26,6 @@ int **alloc_grid(int width, int height)
 	for (i = 0; i < height; i++)
 	{
 		griddy[i] = (int *)malloc(width * sizeof(int));
-		if (griddy[i] == NULL)
-		{
-			for (k = 0; k < i; k++)
-			{
-				free(griddy[k]);
-			}
-			free(griddy);
-			return (NULL);
-		}
 		for (k = 0; k < width; k++)
 		{
 			griddy[i][k] = 0;
