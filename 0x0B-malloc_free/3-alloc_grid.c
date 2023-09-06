@@ -34,6 +34,10 @@ int **alloc_grid(int width, int height)
 			free(griddy);
 			return (NULL);
 		}
+		for (k = 0; k < width; k++)
+		{
+			griddy[i][k] = 0;
+		}
 	}
 	return (griddy);
 }
