@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
-#include <limits.h>
 /**
  * _calloc - function that allocates memory for an array, using malloc
  * @nmemb: argument
  * @size: argument
- * Return appropriate values
+ * Return: appropriate values
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
@@ -18,17 +17,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
-	if (nmemb > UINT_MAX / size)
-	{
-		return (NULL);
-	}
 
 	total_size = nmemb * size;
 	ptr = malloc(total_size);
 
 	if (ptr == NULL)
 	{
-		return(NULL);
+		return (NULL);
 	}
 	memset(ptr, 0, total_size);
 	return (ptr);
