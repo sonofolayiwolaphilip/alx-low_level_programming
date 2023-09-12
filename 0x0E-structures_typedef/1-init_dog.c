@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "dog.h"
-#incl
+#include <stdlib.h>
 /**
  * init_dog - intialize structure
  * @name: expected value
