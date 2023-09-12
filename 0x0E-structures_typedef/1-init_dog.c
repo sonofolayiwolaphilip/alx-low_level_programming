@@ -13,6 +13,6 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 
 	d->age = age;
-	d->name = strdup(name);
-	d->owner = strdup(owner);
+	strcpy(d->name, name);
+	strcpy(d->owner, owner);
 }
