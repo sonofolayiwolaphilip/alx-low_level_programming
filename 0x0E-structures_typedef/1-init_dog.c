@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "dog.h"
+#incl
 /**
  * init_dog - intialize structure
  * @name: expected value
@@ -11,8 +12,10 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-
-	d->age = age;
-	strcpy(d->name, name);
-	strcpy(d->owner, owner);
+	if (d != NULL)
+	{
+		d->name = name;
+		d->age = age;
+		d->owner = owner;
+	}
 }
