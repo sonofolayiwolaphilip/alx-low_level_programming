@@ -22,26 +22,36 @@ int main(int argc, char *argv[])
 	num2 = atoi(argv[3]);
 	operator = argv[2][0];
 
-	if (operator == '+' || operator == '-' ||
-			operator == '*' || operator == '/' ||
-			operator == '%')
+	if (operator == '+')
+		calc = num1 + num2;
+	else if (argv[2][0] == '-')
+		calc = num1 - num2;
+	else if (argv[2][0] == '*')
+		calc = num1 * num2;
+	else if (argv[2][0] == '/')
 	{
-		if ((operator == '/' || operator == '%') && num2 == 0)
+		if (num2 == 0)
 		{
 			printf("Error\n");
 			return (100);
 		}
-		calc = (operator == '+') ? num1 + num2 :
-			(operator == '-') ? num1 - num2 :
-			(operator == '*') ? num1 * num2 :
-			(operator == '/') ? num1 / num2 :
-			(operator == '%') ? num1 % num2 : 0;
-		printf("%d\n", calc);
-		return (0);
+		calc = num1 / num2;
+	}
+	else if (argv[2][0] == '%')
+	{
+		if (num2 == 0)
+		{
+			printf("Error\n");
+			return (100);
+		}
+		calc = num1 % num2;
 	}
 	else
 	{
 		printf("Error\n");
 		return (99);
 	}
+	printf("%d\n", calc);
+	return (0);
 }
+
