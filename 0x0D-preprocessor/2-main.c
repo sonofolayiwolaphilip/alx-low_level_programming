@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
- * main - program that print the name of the file it is compiled from
- * Return - To return 0 on success
+ * main - main entry to the program
+ * Return: To return 0 on success the
  */
-int main()
+int main(void)
 {
 	printf("%s\n", __FILE__);
 	return (0);
