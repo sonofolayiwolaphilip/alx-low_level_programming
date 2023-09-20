@@ -1,41 +1,47 @@
 #include "main.h"
-#include <stdio.h>
-#include <string.h>
+
 #include <stdlib.h>
+
 /**
- * argstostr - function name
- * @ac: parameter
- * @av: second argument
- * Return: appropriate value on success or failure
- */
+* argstostr - main entry
+* @ac: int input
+* @av: double pointer array
+* Return: 0
+*/
+
 char *argstostr(int ac, char **av)
+
 {
-	int i, len_t = 0;
-	char *new;
+
+	int i, n, r = 0, l = 0;
+
+	char *str;
 
 	if (ac == 0 || av == NULL)
-	{
 		return (NULL);
-	}
-	for (i = 1; i < ac; i++)
-	{
-		len_t += strlen(av[i]) + 1;
-	}
-
-	new = (char *)malloc(len_t + 1);
-	if (new == NULL)
-	{
-		return (NULL);
-	}
-	new[0] = '\0';
 
 	for (i = 0; i < ac; i++)
 	{
-		strcat(new, av[i]);
-		if (i < ac)
+		for (n = 0; av[i][n]; n++)
+			l++;
+	}
+	l += ac;
+	str = malloc(sizeof(char) * l + 1);
+
+	if (str == NULL)
+		return (NULL);
+
+	for (i = 0; i < ac; i++)
+	{
+		for (n = 0; av[i][n]; n++)
 		{
-			strcat(new, "\n");
+			str[r] = av[i][n];
+			r++;
+		}
+		if (str[r] == '\0')
+		{
+			str[r++] = '\n';
 		}
 	}
-	return (new);
+	return (str);
 }
