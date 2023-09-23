@@ -1,30 +1,40 @@
 #include "main.h"
-#include <string.h>
 #include <stdlib.h>
+#include <stddef.h>
+
 /**
- * str_concat - string concatenation
- * @s1: first string
- * @s2: second string
- * Return: NUll on failure and pointer on success
- */
+* str_concat - a function that concatenates two strings.
+*@s1:First string
+*@s2:Second string
+*
+*Return: NULL in case of failure , but pointer to new string in
+*case of success
+*/
+
 char *str_concat(char *s1, char *s2)
 {
-	char *ptr;
+	char *concat_str;
+	int index, concat_index = 0,  len = 0;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
+
 	if (s2 == NULL)
-	{
-		s1 = "";
-	}
-	ptr = (char *)malloc(strlen(s1) + strlen(s2) + 1);
-	if (ptr == NULL)
-	{
+		s2 = "";
+
+	for (index = 0; s1[index] || s2[index]; index++)
+		len++;
+
+	concat_str = malloc(sizeof(char) * len);
+
+	if (concat_str == NULL)
 		return (NULL);
-	}
-	strcpy(ptr, s1);
-	strcat(ptr, s2);
-	return (ptr);
+
+	for (index = 0; s1[index]; index++)
+		concat_str[concat_index++] = s1[index];
+
+	for (index = 0; s2[index]; index++)
+		concat_str[concat_index++] = s2[index];
+
+	return (concat_str);
 }
