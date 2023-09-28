@@ -11,7 +11,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	int count;
 
-	unsigned long in present;
+	unsigned long int present;
 
 	unsigned long int s;
 
