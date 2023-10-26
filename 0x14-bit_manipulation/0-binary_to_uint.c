@@ -19,7 +19,7 @@
 	}
 	else
 	{
-		for (j = 0; b[j]; j++)
+		for (j = 0; b[j]; j++)7
 		{
 			if (b[j] < '0' || b[j] > '1')
 				return (0);
