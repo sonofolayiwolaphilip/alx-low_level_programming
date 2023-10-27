@@ -10,7 +10,9 @@ unsigned int binary_to_uint(const char *b)
 {
 	int j, i;
 
-	unsigned int output = 0;
+	unsigned int output;
+
+	output = 0;
 
 	j = strlen(b);
 
